@@ -5,7 +5,20 @@ const morgan = require('morgan');
 const connectDB = require('./config/db');
 
 const app = express();
-app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
+const allowedOrigins = (process.env.CLIENT_URL || '')
+  .split(',')
+  .map((origin) => origin.trim().replace(/\/+$/, ''))
+  .filter(Boolean);
+app.use(cors({
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    const error = new Error(`Origin not allowed by CORS: ${origin}`);
+    error.status = 403;
+    return callback(error);
+  },
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization', 'Idempotency-Key'],
+}));
 app.use(express.json());
 app.use(morgan('dev'));
 
