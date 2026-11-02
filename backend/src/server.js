@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 app.use(async (req, _res, next) => {
-  if (req.path === '/' || req.path === '/health') return next();
+  if (req.path === '/' || req.path === '/health' || req.path === '/api') return next();
   try {
     await connectDB();
     return next();
@@ -22,6 +22,7 @@ app.use(async (req, _res, next) => {
 const liveness = (_req, res) => res.json({ status: 'ok', app: 'Tasxity' });
 app.get('/', liveness);
 app.get('/health', liveness);
+app.get('/api', liveness);
 app.get('/api/health', (_req, res) => res.json({ status: 'ok', app: 'Tasxity', database: 'connected' }));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/tasks', require('./routes/tasks'));
