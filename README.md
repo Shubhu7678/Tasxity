@@ -19,3 +19,24 @@ MERN task manager. `frontend/` (React + Vite) and `backend/` (Express + MongoDB)
 - Focus sessions use `POST /api/focus`, `GET /api/focus/active`, and `POST /api/focus/:id/action` (`pause`, `resume`, `finish`, or `cancel`). `GET /api/focus/summary?timezone=<IANA zone>` returns session analytics. Productivity preferences extend `PUT /api/auth/preferences`.
 - The dashboard provides Command Palette (`Cmd/Ctrl+K`), global shortcuts (`N`, `/`, `G` then `O|M|C`, `Escape`), keyboard-shortcut help, and Focus Mode. Browser notification permission is requested only when enabled in Preferences.
 - Smart Paste supports numbered, bulleted, checkbox, Markdown heading, and plain-text task lines. Review and select entries before creating up to 100 tasks with `POST /api/tasks/bulk`; the authenticated endpoint validates project ownership and uses an `Idempotency-Key` header to prevent duplicate submissions. Task lists and Kanban support selection and plain, Markdown checklist, or detailed clipboard formats. `GET /api/tasks/project-export?projectId=<id>&offset=<n>&limit=200` returns bounded pages for copying a complete project task list. Paste Tasks is available from the dashboard, My Tasks, and project views (`Cmd/Ctrl+Shift+V` outside text fields).
+
+## Frontend structure
+```
+frontend/src/
+  main.jsx, App.jsx        entry point and routes
+  api.js, context/         axios client and auth state
+  utils/                   date and Smart Paste helpers
+  pages/
+    Home.jsx (+ home.css)  landing page
+    Login.jsx, Signup.jsx  thin wrappers around components/AuthShell
+    Dashboard.jsx          dashboard state, handlers and page switching
+    dashboard/             Sidebar, Board (kanban, list, timeline), TaskModal,
+                           TaskDetail, ProjectsPage, ProjectTasksPage, constants, helpers
+    work/                  My Day, My Tasks, Calendar, Reports and Settings pages
+    ProfilePage.jsx
+  components/              AuthShell, Logo, Onboarding, CommandPalette, FocusMode,
+                           ShortcutsDialog, SmartPasteModal
+  styles/                  global CSS split by area; imported in order by index.css
+```
+Order matters in `index.css`: later files override earlier ones. Page and component CSS
+(`home.css`, `auth.css`, `onboarding.css`) sits next to the component it styles.

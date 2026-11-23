@@ -1,0 +1,40 @@
+/* Sign in / Create account form */
+.auth { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+.auth-art { position: relative; padding: 32px 40px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.auth-art > :not(svg) { position: relative; }
+.auth-tag h2 { font-size: clamp(40px, 5vw, 64px); line-height: 1.05; margin-bottom: 14px; text-shadow: 0 2px 20px rgba(0,0,0,.4); }
+.auth-tag p { color: #e5e5ea; }
+.auth-panel { display: grid; place-items: center; padding: 30px; background: radial-gradient(800px 500px at 60% 30%, #141418, var(--bg)); }
+.auth-card { width: 100%; max-width: 430px; background: rgba(255,255,255,.04); border: 1px solid var(--line); border-radius: 20px; padding: 34px; display: flex; flex-direction: column; gap: 12px; backdrop-filter: blur(10px); }
+.auth-card h3 { font-size: 22px; }
+.social { padding: 11px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); font-size: 14px; }
+.social:hover { border-color: rgba(124,127,248,.4); }
+.guest-divider { margin: 4px 0; }
+.demo-card { width: 100%; display: flex; align-items: center; gap: 14px; padding: 14px; border: 1px solid rgba(124,127,248,.5); border-radius: 14px; background: linear-gradient(135deg, rgba(124,127,248,.2), rgba(124,127,248,.05)); text-align: left; position: relative; overflow: hidden; transition: transform .2s, border-color .2s, box-shadow .2s; box-shadow: 0 0 0 0 rgba(124,127,248,.4); animation: demo-ping 2.8s ease-out 1.2s 2; }
+.demo-card:hover:not(:disabled) { transform: translateY(-1px); border-color: rgba(165,167,251,.9); box-shadow: 0 10px 34px rgba(124,127,248,.3); }
+.demo-card:disabled { opacity: .7; cursor: wait; }
+.demo-icon { width: 40px; height: 40px; display: grid; place-items: center; flex: none; border-radius: 12px; background: rgba(124,127,248,.28); color: #fff; }
+.demo-copy { display: grid; flex: 1; min-width: 0; gap: 3px; }
+.demo-copy b { font-size: 14px; }
+.demo-copy small { color: #c7c7cc; font-size: 12px; line-height: 1.45; }
+.demo-go { display: inline-flex; align-items: center; gap: 5px; padding: 8px 12px; border-radius: 9px; background: #fff; color: #000; font-size: 12px; font-weight: 600; white-space: nowrap; }
+@keyframes demo-ping { 0% { box-shadow: 0 0 0 0 rgba(124,127,248,.5); } 70%, 100% { box-shadow: 0 0 0 14px rgba(124,127,248,0); } }
+@media (max-width: 460px) { .demo-card { flex-wrap: wrap; } .demo-go { width: 100%; justify-content: center; } }
+.guest-access { width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.025); text-align: left; transition: border-color .2s, background .2s; }
+.guest-access:hover:not(:disabled) { border-color: rgba(124,127,248,.38); background: rgba(124,127,248,.055); }
+.guest-access:disabled { opacity: .65; cursor: wait; }
+.guest-access-icon { width: 38px; height: 38px; display: grid; place-items: center; flex: none; border-radius: 11px; color: var(--gold2); background: rgba(124,127,248,.12); }
+.guest-access-copy { display: grid; flex: 1; min-width: 0; gap: 4px; }
+.guest-access-copy b { font-size: 12px; }
+.guest-access-copy small { color: var(--muted); font-size: 10px; line-height: 1.45; }
+.guest-access-action { display: inline-flex; align-items: center; gap: 4px; padding: 7px 8px; border: 1px solid rgba(124,127,248,.3); border-radius: 8px; color: var(--gold2); font-size: 10px; white-space: nowrap; }
+.divider { text-align: center; color: var(--muted); font-size: 12px; position: relative; margin: 4px 0; }
+.divider span { background: #0f0f10; padding: 0 10px; position: relative; }
+.divider::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid var(--line); }
+.field { display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 46px; border: 1px solid var(--line); border-radius: 10px; background: rgba(0,0,0,.25); color: var(--muted); }
+.field:focus-within { border-color: rgba(124,127,248,.6); }
+.field input { flex: 1; background: none; border: 0; font-size: 14px; }
+.eye { color: var(--muted); display: flex; }
+.row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); }
+.row .check { width: auto; height: auto; border: 0; display: flex; gap: 8px; align-items: center; margin: 0; }
+.switch { text-align: center; font-size: 13px; color: var(--muted); }

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" fill="none">
+  <defs>
+    <linearGradient id="g" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9a9cfb"/><stop offset="1" stop-color="#4338ca"/></linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#g)"/>
+  <path d="M17 19.5h30M32 19.5V43l12.5-13" stroke="#fff" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="43" fill="#f5f5f7" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','Geist Variable',Inter,sans-serif" font-size="34" font-weight="700" letter-spacing="-1">Tasxity<tspan fill="#7c7ff8">.</tspan></text>
+</svg>

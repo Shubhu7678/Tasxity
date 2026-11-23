@@ -1,0 +1,30 @@
+/* Task create and task details modals */
+/* ---------- Task create / details modals ---------- */
+.task-detail-modal, .task-create-modal { max-width: 580px; gap: 14px; padding: 26px 26px 0; scrollbar-width: thin; scrollbar-color: #3a3a3c transparent; }
+.task-create-modal { padding-bottom: 26px; }
+.task-detail-modal .panel-head, .task-create-modal .panel-head { margin-bottom: 0; }
+.task-detail-modal .panel-head h4, .task-create-modal .panel-head h4 { font-size: 17px; letter-spacing: -.01em; }
+.task-detail-modal textarea, .task-create-modal textarea { font-family: inherit; font-size: 14px; line-height: 1.5; }
+.task-title-input { height: 50px; font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
+.task-description-input { min-height: 84px; padding: 12px; resize: vertical; }
+.tf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tf-grid > label { min-width: 0; }
+.tf-section { margin: 6px 0 -2px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--subtle); }
+.task-detail-modal .phase-date-label, .task-create-modal .phase-date-label { gap: 6px; font-size: 12px; font-weight: 500; color: var(--muted); }
+.task-detail-modal .phase-date-label .input, .task-create-modal .phase-date-label .input { height: 42px; font-size: 14px; font-weight: 400; color: var(--text); }
+.task-detail-modal .input, .task-create-modal .input { transition: border-color .15s, box-shadow .15s; }
+.task-detail-modal .input:focus, .task-create-modal .input:focus { border-color: rgba(124,127,248,.8); box-shadow: 0 0 0 3px rgba(124,127,248,.16); }
+.task-detail-modal select.input, .task-create-modal select.input { appearance: none; -webkit-appearance: none; padding-right: 34px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238e8e93' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
+.tf-sub-head { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; }
+.tf-sub-head .tf-section { margin: 0; }
+.subtask-editor { gap: 8px; }
+.task-detail-actions { position: sticky; bottom: 0; z-index: 2; align-items: center; margin: 6px -26px 0; padding: 14px 26px; border-top: 1px solid var(--line); background: #0f0f10; border-radius: 0 0 18px 18px; }
+.task-detail-actions .btn { font-size: 13px; padding: 10px 14px; }
+@media (max-width: 520px) {
+  .task-detail-modal, .task-create-modal { padding: 20px 18px 0; }
+  .task-create-modal { padding-bottom: 20px; }
+  .tf-grid { grid-template-columns: 1fr; }
+  .task-detail-actions { margin: 6px -18px 0; padding: 12px 18px; }
+}
+
+.task-detail-modal > *, .task-create-modal > * { flex-shrink: 0; }
